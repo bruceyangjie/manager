@@ -42,15 +42,15 @@ public class UserController {
     }
 
     @GetMapping("/login")
-    public ResultEntity login(String userNmae, String passWord) {
-        UsernamePasswordToken token = new UsernamePasswordToken(userNmae, passWord);
+    public ResultEntity login(String userName, String passWord) {
+        UsernamePasswordToken token = new UsernamePasswordToken(userName, passWord);
         Subject subject = SecurityUtils.getSubject();
         try {
             subject.login(token);
             return ResultTool.ok();
         } catch (Exception e) {
             e.printStackTrace();
+            return ResultTool.fail();
         }
-        return ResultTool.ok();
     }
 }
