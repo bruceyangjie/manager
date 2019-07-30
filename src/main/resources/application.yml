@@ -1,5 +1,9 @@
 server:
   port: 8090
+  ssl:
+    enabled: true
+    key-store: file:D:\tomcat.keystore
+    key-password: yangjie
 spring:
   application:
     name: manager
